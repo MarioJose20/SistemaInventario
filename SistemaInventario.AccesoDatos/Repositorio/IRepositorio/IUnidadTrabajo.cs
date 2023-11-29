@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemaInventario.AccesoDatos.Repositorio.IRepositorio
 {
-    public interface IUnidadTrabajo : IDisposable 
+    public interface IUnidadTrabajo : IDisposable // elimina objetos que ya no se usan 
     {
-        IBodegaRepositorio bodega { get; }
+        IBodegaRepositorio Bodega { get; } // porque no vanos a cambiar
 
         Task Guardar();
     }

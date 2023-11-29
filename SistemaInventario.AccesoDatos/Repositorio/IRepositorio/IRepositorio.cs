@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace SistemaInventario.AccesoDatos.Repositorio.IRepositorio
 {
+    // Puede recibir cualquier objeto ejemplos bodegas caregorias para los crud 
     public interface IRepositorio<T> where T : class // de esta manera hacemos la interfaz generica
     {
+        // estos son metodos asyncronos async
         Task<T> Obtener(int id);
 
         Task<IEnumerable<T>> ObtenerTodos(
-            Expression<Func<T, bool>> filtro = null,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+            Expression<Func<T, bool>> filtro = null, // funciona como un filtro
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, // es para ordenar 
             string incluirPropiedades = null,
             bool isTracking = true
             );
@@ -24,6 +26,7 @@ namespace SistemaInventario.AccesoDatos.Repositorio.IRepositorio
             );
         Task Agregar(T entidad);
 
+        // estos metodos no pueden ser asyncronos porque son de remover
         void Remover(T entidad);
 
         void RemoverRango(IEnumerable<T> entidad);

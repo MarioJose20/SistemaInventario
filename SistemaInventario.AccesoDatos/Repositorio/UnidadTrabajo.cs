@@ -8,19 +8,17 @@ using System.Threading.Tasks;
 
 namespace SistemaInventario.AccesoDatos.Repositorio
 {
+    // Envuelve a todos los repositorios de trabajo
     public class UnidadTrabajo : IUnidadTrabajo
     {
+        // Implementamos dbContext
         private readonly ApplicationDbContext _db;
         public IBodegaRepositorio Bodega { get; private set; }
-
-        public IBodegaRepositorio bodega => throw new NotImplementedException();
-
         public UnidadTrabajo(ApplicationDbContext db)
         {
             _db = db;
             Bodega = new BodegaRepositorio(_db);
         }
-
 
         public void Dispose()
         {

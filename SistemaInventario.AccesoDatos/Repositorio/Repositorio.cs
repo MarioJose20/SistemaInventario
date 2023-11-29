@@ -14,7 +14,7 @@ namespace SistemaInventario.AccesoDatos.Repositorio
     {
         private readonly ApplicationDbContext _db;
         internal DbSet<T> dbSet;
-
+        // generar constructor con ctor doble tap.
         public Repositorio(ApplicationDbContext db)
         {
             _db = db;
@@ -27,7 +27,7 @@ namespace SistemaInventario.AccesoDatos.Repositorio
 
         public async Task<T> Obtener(int id)
         {
-            return await dbSet.FindAsync(id); 
+            return await dbSet.FindAsync(id); // solo trabaja con el id
         }
 
         public async Task<T> ObtenerPrimero(Expression<Func<T, bool>> filtro = null, string incluirPropiedades = null, bool isTracking = true)

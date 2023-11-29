@@ -1,0 +1,23 @@
+﻿<!--Cuando creamos esta vista parcial, tenemos que declarar dos const en la capa de utilidades en clase public static creada-->
+@using SistemaInventario.Utilidades;
+
+@if(TempData[DS.Exitosa] != null)
+{
+    <!--Estas librerias son extraidas de layout nuestra plantilla principal-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData[DS.Exitosa]');
+    </script>
+}
+
+@if (TempData[DS.Error] != null)
+{
+    <!--Estas librerias son extraidas de layout nuestra plantilla principal-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.error('@TempData[DS.Error]');
+    </script>
+}
+<!--Esta vista sera llamada en el layout justo antes del render body-->
